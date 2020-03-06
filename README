@@ -1,0 +1,169 @@
+         QEMU README
+         ===========
+
+QEMU is a generic and open source machine & userspace emulator and
+virtualizer.
+
+QEMU is capable of emulating a complete machine in software without any
+need for hardware virtualization support. By using dynamic translation,
+it achieves very good performance. QEMU can also integrate with the Xen
+and KVM hypervisors to provide emulated hardware while allowing the
+hypervisor to manage the CPU. With hypervisor support, QEMU can achieve
+near native performance for CPUs. When QEMU emulates CPUs directly it is
+capable of running operating systems made for one machine (e.g. an ARMv7
+board) on a different machine (e.g. an x86_64 PC board).
+
+QEMU is also capable of providing userspace API virtualization for Linux
+and BSD kernel interfaces. This allows binaries compiled against one
+architecture ABI (e.g. the Linux PPC64 ABI) to be run on a host using a
+different architecture ABI (e.g. the Linux x86_64 ABI). This does not
+involve any hardware emulation, simply CPU and syscall emulation.
+
+QEMU aims to fit into a variety of use cases. It can be invoked directly
+by users wishing to have full control over its behaviour and settings.
+It also aims to facilitate integration into higher level management
+layers, by providing a stable command line interface and monitor API.
+It is commonly invoked indirectly via the libvirt library when using
+open source applications such as oVirt, OpenStack and virt-manager.
+
+QEMU as a whole is released under the GNU General Public License,
+version 2. For full licensing details, consult the LICENSE file.
+
+
+Building
+========
+
+QEMU is multi-platform software intended to be buildable on all modern
+Linux platforms, OS-X, Win32 (via the Mingw64 toolchain) and a variety
+of other UNIX targets. The simple steps to build QEMU are:
+
+  mkdir build
+  cd build
+  ../configure
+  make
+
+Additional information can also be found online via the QEMU website:
+
+  http://qemu-project.org/Hosts/Linux
+  http://qemu-project.org/Hosts/W32
+
+
+Submitting patches
+==================
+
+The QEMU source code is maintained under the GIT version control system.
+
+   git clone git://git.qemu-project.org/qemu.git
+
+When submitting patches, the preferred approach is to use 'git
+format-patch' and/or 'git send-email' to format & send the mail to the
+qemu-devel@nongnu.org mailing list. All patches submitted must contain
+a 'Signed-off-by' line from the author. Patches should follow the
+guidelines set out in the HACKING and CODING_STYLE files.
+
+Additional information on submitting patches can be found online via
+the QEMU website
+
+  http://qemu-project.org/Contribute/SubmitAPatch
+  http://qemu-project.org/Contribute/TrivialPatches
+
+
+Bug reporting
+=============
+
+The QEMU project uses Launchpad as its primary upstream bug tracker. Bugs
+found when running code built from QEMU git or upstream released sources
+should be reported via:
+
+  https://bugs.launchpad.net/qemu/
+
+If using QEMU via an operating system vendor pre-built binary package, it
+is preferable to report bugs to the vendor's own bug tracker first. If
+the bug is also known to affect latest upstream code, it can also be
+reported via launchpad.
+
+For additional information on bug reporting consult:
+
+  http://qemu-project.org/Contribute/ReportABug
+
+
+Contact
+=======
+
+The QEMU community can be contacted in a number of ways, with the two
+main methods being email and IRC
+
+ - qemu-devel@nongnu.org
+   http://lists.nongnu.org/mailman/listinfo/qemu-devel
+ - #qemu on irc.oftc.net
+
+Information on additional methods of contacting the community can be
+found online via the QEMU website:
+
+  http://qemu-project.org/Contribute/StartHere
+
+Distributed Qemu
+================
+Steps to boot a distributed qemu: 
+I. Modify some code (for simplicity, we hard code something) and compile 
+distributed qemu code. (https://github.com/binss/QEMU.git)
+II. Create QEMU image
+III. Compile a linux kernel (Optional)
+IV. Run Qemu!
+
+I. Compile distributed qemu code
+    Get the source: 
+        $: git clone https://github.com/binss/QEMU.git
+        $: cd QEMU
+    Change the shared file pathname and default port: 
+        Edit $QEMU_DIR/interrupt-router.c and change macro definition of 
+        ROUTER_SOCKET_PREFIX and ROUTER_TCP_DEFAULT_PORT to appropriate values. 
+    Compile it: 
+        $: $QEMU_DIR/configure --target-list=x86_64-softmmu --enable-kvm
+        $: make
+II. Create QEMU image (These operations should be executed with graphic display)
+    Create a raw disk image (format=qcow2, capacity=10G): 
+        $: $QEMU_DIR/qemu-img create -f qcow2 ubuntu-server.img 10G
+    Install OS from CD-ROM image (memory=1024MB, os 
+    image=ubuntu-14.04.3-server-amd64.iso) 
+        $: $QEMU_DIR/qemu-system-x86_64 -m 1024 ubuntu-server.img -cdrom 
+        ubuntu-14.04.3-server-amd64.iso -enable-kvm
+    Boot OS (This is the standalone qemu): 
+        $: $QEMU_DIR/qemu-system-x86_64 -m 1024 ubuntu-server.img -enable-kvm
+III. Compile a linux kernel (Optional)
+    Get the source: 
+        $: git clone https://github.com/torvalds/linux.git
+        $: cd linux
+    Compile it: 
+        $: make menuconfig (maybe deselect some useless hardware drivers)
+        $: make 
+IV. Run Qemu!
+    In the current implementation BSP and AP can boot in any order. 
+    Set the ACL (Thus you don't need to use sudo to run KVM. It will be 
+    reset after reboot): 
+        $: sudo setfacl -m "u:[username]:rw" /dev/kvm
+    Boot BSP (Use -kernel to indicates linux image, -hda to indicates disk 
+    image, 'console=ttyS0' tells guest to redirect serial port to qemu serial 
+    port, '-cpu host' tells qemu to generate the same cpu model as host, 
+    '-machine kernel-irqchip=off' tells qemu to simulate irqchip (APIC and 
+    IOAPIC) in qemu rather than KVM, '-smp 2' tell qemu to generate 2 vcpus, 
+    '-m 512' indicate 512 MB memory, '-local-cpu 1,start=0' indicates there 
+    is 1 local cpu, the index starts from 0, '-net user -net nic,model=virtio' 
+    tells qemu to generate a virtio-based NIC, '-monitor 
+    telnet:127.0.0.1:1234,server,nowait' enable telnet to qemu monitor by 
+    port 1234): 
+        $: $QEMU_DIR/x86_64-softmmu/qemu-system-x86_64 --nographic -kernel 
+        $LINUX_BUILD_DIR/arch/x86/boot/bzImage -hda ubuntu-server.img 
+        -append "root=/dev/sda1 console=ttyS0" -cpu host -machine kernel-irqchip=off 
+        -smp 2 -m 512  --enable-kvm -serial mon:stdio -shm-path 
+        [a user-defined name] -local-cpu 1,start=0 -net user -net nic,model=virtio 
+        -monitor telnet:127.0.0.1:1234,server,nowait
+    Boot AP (Note the difference between BSP and AP, '-local-cpu 1,start=1'): 
+        $: $QEMU_DIR/x86_64-softmmu/qemu-system-x86_64 --nographic -kernel 
+        $LINUX_BUILD_DIR/arch/x86/boot/bzImage -hda ubuntu-server.img 
+        -append "root=/dev/sda1 console=ttyS0" -cpu host -machine 
+        kernel-irqchip=off -smp 2 -m 512  --enable-kvm -serial mon:stdio 
+        -shm-path [a user-defined name, should be the same as BSP] -local-cpu 
+        1,start=1 -net nic,model=virtio -monitor telnet:127.0.0.1:1235,server,nowait
+
+-- End
