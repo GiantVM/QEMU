@@ -2,9 +2,13 @@
  * QEMU live migration
  *
  * Copyright IBM, Corp. 2008
- *
+ * Copyright (c) 2018 Trusted Cloud Group, Shanghai Jiao Tong University
+ *   
  * Authors:
  *  Anthony Liguori   <aliguori@us.ibm.com>
+ *  Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *  Yubin Chen 	    <binsschen@sjtu.edu.cn>
+ *  Zhuocheng Ding  <tcbbd@sjtu.edu.cn>
  *
  * This work is licensed under the terms of the GNU GPL, version 2.  See
  * the COPYING file in the top-level directory.

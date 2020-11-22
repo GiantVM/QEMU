@@ -5,6 +5,11 @@
  * Copyright (c) 2010 Roland Elek <elek.roland@gmail.com>
  * Copyright (c) 2010 Sebastian Herbszt <herbszt@gmx.de>
  * Copyright (c) 2010 Alexander Graf <agraf@suse.de>
+ * Copyright (c) 2018 Trusted Cloud Group, Shanghai Jiao Tong University
+ * authors in Trusted Cloud Group, Shanghai Jiao Tong University:
+ *   Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *   Yubin Chen 	<binsschen@sjtu.edu.cn>
+ *   Zhuocheng Ding <tcbbd@sjtu.edu.cn>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

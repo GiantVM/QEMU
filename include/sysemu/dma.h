@@ -2,6 +2,11 @@
  * DMA helper functions
  *
  * Copyright (c) 2009 Red Hat
+ * Copyright (c) 2018 Trusted Cloud Group, Shanghai Jiao Tong University
+ * Authors in Trusted Cloud Group, Shanghai Jiao Tong University:
+ *   Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *   Yubin Chen 	<binsschen@sjtu.edu.cn>
+ *   Zhuocheng Ding <tcbbd@sjtu.edu.cn>
  *
  * This work is licensed under the terms of the GNU General Public License
  * (GNU GPL), version 2 or later.

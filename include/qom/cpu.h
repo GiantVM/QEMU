@@ -2,6 +2,11 @@
  * QEMU CPU model
  *
  * Copyright (c) 2012 SUSE LINUX Products GmbH
+ * Copyright (c) 2017 Trusted Cloud Group, Shanghai Jiao Tong University
+ * Authors in Trusted Cloud Group, Shanghai Jiao Tong University:
+ *   Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *   Yubin Chen 	<binsschen@sjtu.edu.cn>
+ *   Zhuocheng Ding <tcbbd@sjtu.edu.cn>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

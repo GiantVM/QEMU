@@ -3,11 +3,15 @@
  *
  * Copyright IBM, Corp. 2010-2013
  * Copyright Red Hat, Inc. 2015-2016
+ * Copyright (c) 2017 Trusted Cloud Group, Shanghai Jiao Tong University
  *
  * Authors:
  *  Michael R. Hines <mrhines@us.ibm.com>
  *  Jiuxing Liu <jl@us.ibm.com>
  *  Daniel P. Berrange <berrange@redhat.com>
+ *  Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *  Yubin Chen 	    <binsschen@sjtu.edu.cn>
+ *  Zhuocheng Ding  <tcbbd@sjtu.edu.cn>
  *
  * This work is licensed under the terms of the GNU GPL, version 2 or
  * later.  See the COPYING file in the top-level directory.

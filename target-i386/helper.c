@@ -2,6 +2,11 @@
  *  i386 helpers (without register variable usage)
  *
  *  Copyright (c) 2003 Fabrice Bellard
+ *  Copyright (c) 2017 Trusted Cloud Group, Shanghai Jiao Tong University
+ *  Authors in Trusted Cloud Group, Shanghai Jiao Tong University:
+ *   Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *   Yubin Chen 	<binsschen@sjtu.edu.cn>
+ *   Zhuocheng Ding <tcbbd@sjtu.edu.cn>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

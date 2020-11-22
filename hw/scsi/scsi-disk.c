@@ -2,6 +2,7 @@
  * SCSI Device emulation
  *
  * Copyright (c) 2006 CodeSourcery.
+ * Copyright (c) 2018 Trusted Cloud Group, Shanghai Jiao Tong University
  * Based on code by Fabrice Bellard
  *
  * Written by Paul Brook
@@ -11,7 +12,10 @@
  *                                 than 36.
  *  2009-Oct-13 Artyom Tarasenko : implemented the block descriptor in the
  *                                 MODE SENSE response.
- *
+ * authors in Trusted Cloud Group, Shanghai Jiao Tong University:
+ *   Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *   Yubin Chen 	<binsschen@sjtu.edu.cn>
+ *   Zhuocheng Ding <tcbbd@sjtu.edu.cn>
  * This code is licensed under the LGPL.
  *
  * Note that this file only handles the SCSI architecture model and device

@@ -1,5 +1,15 @@
 #ifndef HW_IDE_INTERNAL_H
 #define HW_IDE_INTERNAL_H
+/*
+ *  Copyright (c) 2017 Trusted Cloud Group, Shanghai Jiao Tong University
+ *  authors in Trusted Cloud Group, Shanghai Jiao Tong University:
+ *   Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *   Yubin Chen 	<binsschen@sjtu.edu.cn>
+ *   Zhuocheng Ding <tcbbd@sjtu.edu.cn>
+ * 
+ *  This work is licensed under the terms of the GNU GPL, version 2.  See
+ *  the COPYING file in the top-level directory.
+ */
 
 /*
  * QEMU IDE Emulation -- internal header file

@@ -2,6 +2,11 @@
  * QEMU System Emulator
  *
  * Copyright (c) 2003-2008 Fabrice Bellard
+ * Copyright (c) 2018 Trusted Cloud Group, Shanghai Jiao Tong University
+ * Authors in Trusted Cloud Group, Shanghai Jiao Tong University:
+ *   Jin Zhang 	    <jzhang3002@sjtu.edu.cn>
+ *   Yubin Chen 	<binsschen@sjtu.edu.cn>
+ *   Zhuocheng Ding <tcbbd@sjtu.edu.cn>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
