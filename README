@@ -113,7 +113,7 @@ IV. Run Qemu!
 
 I. Compile distributed qemu code
     Get the source: 
-        $: git clone https://github.com/binss/QEMU.git
+        $: git clone https://github.com/giantvm/QEMU.git
         $: cd QEMU
     Change the shared file pathname and default port: 
         Edit $QEMU_DIR/interrupt-router.c and change macro definition of 
@@ -165,5 +165,31 @@ IV. Run Qemu!
         kernel-irqchip=off -smp 2 -m 512  --enable-kvm -serial mon:stdio 
         -shm-path [a user-defined name, should be the same as BSP] -local-cpu 
         1,start=1 -net nic,model=virtio -monitor telnet:127.0.0.1:1235,server,nowait
+
+Contributors
+============
+
+We modified QEMU to support distributed system. This part is not to establish 
+who owns what portions of the code base, but to provide a set of names that 
+developers can consult when they have a question about a particular subset and
+also to provide a set of names to be CC'd when submitting a patch to obtain appropriate
+ review.
+
+Trusted Cloud Group · Shanghai Key Laboratory 
+of Scalable Computing and Systems, Shanghai Jiao Tong University
+
+- Prof. Zhengwei Qi <qizhwei@sjtu.edu.cn>
+- Prof. Haibing Guan <hbguan@cs.sjtu.edu.cn>
+
+- Zhuocheng Ding <tcbbd@sjtu.edu.cn>
+- Yubin Chen <binsschen@sjtu.edu.cn>
+- Jin Zhang <jzhang3002@sjtu.edu.cn>
+- Yun Wang <yunwang94@sjtu.edu.cn>
+- Jiacheng Ma <jcma@umich.edu>
+- Boshi Yu <201608ybs@sjtu.edu.cn
+- Xingguo Jia <jiaxg1998@sjtu.edu.cn>
+- Weiye Chen <jcma@umich.edu>
+- Chenggang Wu <wuchenggang@sjtu.edu.cn>
+- Yuxin Xiang <xiangyuxin@sjtu.edu.cn>
 
 -- End
